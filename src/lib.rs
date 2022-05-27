@@ -21,7 +21,7 @@ fn byte_slice_contains_pred<P: FnMut(u8, u8) -> bool>(
         }
         if main[main_cursor..]
             .iter()
-            .zip(sub.iter())
+            .zip(sub)
             .all(|(&l, &r)| predicate(l, r))
         {
             return true;
