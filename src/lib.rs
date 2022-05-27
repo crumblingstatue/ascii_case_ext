@@ -1,10 +1,10 @@
 pub trait AsciiCaseExt {
-    fn contains_ignore_ascii_case(&self, sub: &Self) -> bool;
+    fn contains_ignore_ascii_case(self, sub: Self) -> bool;
 }
 
-impl AsciiCaseExt for str {
-    fn contains_ignore_ascii_case(&self, sub: &Self) -> bool {
-        byte_slice_contains_pred(self.as_bytes(), sub.as_bytes(), |l, r| {
+impl<T: AsRef<[u8]>> AsciiCaseExt for T {
+    fn contains_ignore_ascii_case(self, sub: Self) -> bool {
+        byte_slice_contains_pred(self.as_ref(), sub.as_ref(), |l, r| {
             l.to_ascii_lowercase() == r.to_ascii_lowercase()
         })
     }
