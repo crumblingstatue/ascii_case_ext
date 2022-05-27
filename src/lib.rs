@@ -1,8 +1,8 @@
-pub trait AsciiExt {
+pub trait AsciiCaseExt {
     fn contains_ignore_ascii_case(&self, sub: &Self) -> bool;
 }
 
-impl AsciiExt for str {
+impl AsciiCaseExt for str {
     fn contains_ignore_ascii_case(&self, sub: &Self) -> bool {
         byte_slice_contains_pred(self.as_bytes(), sub.as_bytes(), |l, r| {
             l.to_ascii_lowercase() == r.to_ascii_lowercase()

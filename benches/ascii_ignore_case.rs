@@ -1,4 +1,4 @@
-use ascii_case_ext::AsciiExt;
+use ascii_case_ext::AsciiCaseExt;
 use criterion::{Bencher, BenchmarkId, Criterion};
 
 fn ascii_contains_ignore_case(c: &mut Criterion) {
